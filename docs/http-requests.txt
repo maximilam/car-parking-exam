@@ -1,0 +1,51 @@
+HTTP GET /api/cars
+RESPONSE 200 OK 
+[
+  {
+    "id": "1",
+    "license_plate": "HJT-4545",
+    "checkin": "2015/12/21 20:00:00",
+	"checkout": "2015/12/21 23:00:00"
+  },
+  {
+    "id": "2",
+    "license_plate": "HJT-4646",
+    "checkin": "2015/12/21 21:30:12",
+	"checkout": "2015/12/21 21:30:12"
+  }
+]
+
+
+
+HTTP GET /api/cars/:license_plate
+RESPONSE 200 OK 
+{
+	"license_plate": "AAA-9999",
+    "checkin": "yyyy/mm/dd hh:mm:ss",
+	"checkout": "yyyy/mm/dd hh:mm:ss",
+	"id": "9"
+}
+
+HTTP GET /api/cars/x9
+RESPONSE 404 NOT FOUND 
+{
+	"message": "x9 was not found"
+}
+
+
+
+HTTP POST /api/cars
+REQUEST Body 
+{
+	"license_plate": "HJT-4747",
+    "checkin": "2015/12/05 10:00:00",
+	"checkout": "2015/12/18 05:00:00"
+}
+
+RESPONSE 200 OK 
+{
+	"license_plate": "HJT-4747",
+    "checkin": "2015/12/05 10:00:00",
+	"checkout": "2015/12/18 05:00:00",
+	"id": "3"
+}
